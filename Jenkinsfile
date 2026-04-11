@@ -1,21 +1,23 @@
 pipeline {
     agent any
+
     stages {
         stage('Install') {
             steps {
-                bat 'python -m venv venv'
-                bat 'venv\\Scripts\\activate && pip install -r requiremets.txt'
-
+                sh 'python3 -m venv venv'
+                sh 'venv/bin/pip install -r requirements.txt'
             }
         }
+
         stage('Run Server Check'){
             steps {
-                bat 'venv\\Scripts\\activate && python manage.py check'
+                sh 'venv/bin/python manage.py check'
             }
         }
+
         stage('Done') {
             steps {
-                bat 'echo Djano Pipline Success'
+                sh 'echo Django Pipeline Success'
             }
         }
     }
