@@ -1,8 +1,0 @@
-name: My first pipeline
-on: push
-jobs: 
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Step 1
-        run: echo " hello world"
