@@ -1,8 +1,11 @@
-name: My first pipeline 
-on: push 
+name: Matrix Demo
+on: push
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.8,3.9,3.10]
     steps:
-      - name: step 1
-        run: echo " hello world"
+      - name: Print version
+        run: echo "Python $ {{matrix.python-version}}"
